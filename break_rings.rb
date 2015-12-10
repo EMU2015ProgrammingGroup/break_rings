@@ -3,9 +3,8 @@ def python_to_ruby_array(inputstring)	#usage: python_to_ruby_array("({1,2},{2,3}
 end
 
 def break_rings(links)
-  return 0 if links == [[]]	# no breaks are needed if no rings are connected
   rings = links.flatten.uniq	# array of ring numbers (e.g. [1,2,3])
-  connected = true	# variable for while loop
+  connected = (links != [[]])	# variable for while loop; no breaks are needed if no rings are connected
   breaks = 0	# output variable
   while connected
     for breakpattern in rings.combination(breaks += 1) do	# increments breaks by 1, then goes through every combination of rings with length (breaks)
